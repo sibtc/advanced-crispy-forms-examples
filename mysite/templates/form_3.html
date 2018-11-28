@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+  <form method="post" novalidate>
+    {% csrf_token %}
+    <div class="form-row">
+      <div class="form-group col-md-6 mb-0">
+        {{ form.email|as_crispy_field }}
+      </div>
+      <div class="form-group col-md-6 mb-0">
+        {{ form.password|as_crispy_field }}
+      </div>
+    </div>
+    {{ form.address_1|as_crispy_field }}
+    {{ form.address_2|as_crispy_field }}
+    <div class="form-row">
+      <div class="form-group col-md-6 mb-0">
+        {{ form.city|as_crispy_field }}
+      </div>
+      <div class="form-group col-md-4 mb-0">
+        {{ form.state|as_crispy_field }}
+      </div>
+      <div class="form-group col-md-2 mb-0">
+        {{ form.zip_code|as_crispy_field }}
+      </div>
+    </div>
+    {{ form.check_me_out|as_crispy_field }}
+    <button type="submit" class="btn btn-primary">Sign in</button>
+  </form>
+{% endblock %}
